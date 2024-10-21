@@ -27,20 +27,8 @@ Las flechas verdes y violetas representan nuevas conexiones en comparación con 
 
 ## Testeo de Funcionamiento
 
-El orden para probar el funcionamiento completo es el siguiente:
-
-1. Tan pronto como se levante el sistema multi-contenedor, ejecuta en Airflow el DAG 
-llamado `process_etl_heart_data`, de esta manera se crearán los datos en el 
-bucket `s3://data`.
-2. Ejecuta la notebook (ubicada en `notebook_example`) para realizar la búsqueda de 
-hiperparámetros y entrenar el mejor modelo.
-3. Utiliza el servicio de API.
-
-Además, una vez entrenado el modelo, puedes ejecutar el DAG `retrain_the_model` para probar 
-un nuevo modelo que compita con el campeón. Antes de hacer esto, ejecuta el DAG 
-`process_etl_heart_data` para que el conjunto de datos sea nuevo, de lo contrario se entrenará 
-el mismo modelo. Este proceso siempre dará como resultado que el modelo inicial es mejor... 
-el motivo de esto se deja al lector para que comprenda lo que está sucediendo.
+### DOCKER
+docker compose --profile all up
 
 ### REACT-APP
 Se ingresa en [http://localhost:3000/](http://localhost:3000/)
